@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CekNomor.id - Cek Keamanan Nomor Telepon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>CekNomor<span>.id</span></h1>
+            </div>
+            <p class="tagline">Cek nomor telepon mencurigakan dalam hitungan detik</p>
+        </header>
+
+        <main>
+            <!-- INFO CARD -->
+            <div class="info-card">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>Bagaimana cara kerjanya?</strong>
+                    Kami menganalisis nomor dari database publik dan laporan komunitas. 
+                    <span class="highlight">Hasil ini bersifat referensi, bukan kepastian mutlak.</span>
+                </div>
+            </div>
+
+            <!-- INPUT SECTION -->
+            <section class="input-section">
+                <h2><i class="fas fa-phone-alt"></i> Masukkan Nomor Telepon</h2>
+                <p class="subtitle">Format: 08xx-xxxx-xxxx atau +628xx-xxxx-xxxx</p>
+                
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <div class="country-code">🇮🇩 +62</div>
+                        <input type="tel" id="phoneInput" placeholder="81234567890" maxlength="13">
+                    </div>
+                    <button id="scanBtn" class="scan-btn">
+                        <i class="fas fa-search"></i>
+                        Cek Sekarang
+                    </button>
+                </div>
+                
+                <div class="input-footer">
+                    <i class="fas fa-lock"></i> Privasi terjaga. Data tidak disimpan permanen.
+                </div>
+            </section>
+
+            <!-- LOADER -->
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <p class="loading-text">Menganalisis nomor...</p>
+                <div class="loading-steps">
+                    <div class="step active">Memeriksa database</div>
+                    <div class="step">Mencari laporan komunitas</div>
+                    <div class="step">Analisis pola</div>
+                </div>
+            </div>
+
+            <!-- RESULTS SECTION -->
+            <section class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h2><i class="fas fa-clipboard-check"></i> Hasil Analisis</h2>
+                    <div class="result-for">
+                        Untuk: <span id="resultNumber">-</span>
+                        <span class="scan-time" id="scanTime"></span>
+                    </div>
+                </div>
+
+                <div class="results-container" id="resultsContainer">
+                    <!-- HASIL AKAN MUNCUL DI SINI MELALUI JS -->
+                </div>
+
+                <!-- ACTION BUTTONS -->
+                <div class="action-buttons">
+                    <button class="action-btn report-btn">
+                        <i class="fas fa-flag"></i> Laporkan Nomor Ini
+                    </button>
+                    <button class="action-btn save-btn">
+                        <i class="fas fa-save"></i> Simpan Hasil
+                    </button>
+                    <button class="action-btn share-btn">
+                        <i class="fas fa-share-alt"></i> Bagikan
+                    </button>
+                </div>
+
+                <!-- TIPS -->
+                <div class="tips-card">
+                    <h3><i class="fas fa-lightbulb"></i> Tips Keamanan</h3>
+                    <ul class="tips-list">
+                        <li><i class="fas fa-check"></i> Jangan berikan OTP atau PIN kepada siapapun</li>
+                        <li><i class="fas fa-check"></i> Verifikasi identitas penelpon jika ragu</li>
+                        <li><i class="fas fa-check"></i> Laporkan ke WhatsApp jika menerima pesan penipuan</li>
+                        <li><i class="fas fa-check"></i> Cek nomor di Google dengan format: "0812xxxx penipu"</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- HISTORY -->
+            <section class="history-section" id="historySection">
+                <h3><i class="fas fa-history"></i> Riwayat Pengecekan</h3>
+                <div class="history-list" id="historyList">
+                    <div class="empty-history">
+                        <i class="fas fa-clock"></i>
+                        <p>Belum ada riwayat pengecekan</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-shield-alt"></i> CekNomor.id
+                </div>
+                <p class="disclaimer">
+                    <i class="fas fa-exclamation-triangle"></i> 
+                    Layanan ini hanya untuk tujuan edukasi dan referensi. 
+                    Hasil analisis tidak 100% akurat.
+                </p>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-question-circle"></i> Bantuan</a>
+                    <a href="#"><i class="fas fa-user-shield"></i> Privasi</a>
+                    <a href="#"><i class="https://wa.me/6288989115022"></i> Kontak</a>
+                </div>
+                <p class="copyright">© 2026 CekNomorId • Dibuat oleh komunitas Cyber Indonesia</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal" id="resultModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3><i class="fas fa-exclamation-triangle"></i> Peringatan Keamanan</h3>
+            <div class="modal-body" id="modalBody">
+                <!-- Konten modal akan diisi oleh JS -->
+            </div>
+            <button class="modal-btn">Mengerti</button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="script.js"></script>
+</body>
+</html>
